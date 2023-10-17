@@ -1,0 +1,57 @@
+/* Center the login container */
+.login-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center the title */
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Style the input fields */
+.login-container input[type="text"], .login-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Style the login button */
+.login-container button {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Hover effect for the login button */
+.login-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Style for the footer/sign up text */
+.footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Link styling for the sign up text */
+.footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+

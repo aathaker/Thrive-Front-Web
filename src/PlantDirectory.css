@@ -1,0 +1,56 @@
+.plants-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+    justify-content: flex-start;
+}
+
+.plant-card {
+    flex: 1 0 33.3333%;
+    box-sizing: border-box;
+    min-width: 33.3333%;
+    border: 1px solid #e0e0e0;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+    text-align: center; 
+    background-color: #f9f9f9;
+}
+
+.plant-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.plant-card h3 {
+    margin-top: 0;
+    font-size: 1.25rem;
+}
+
+.plant-card p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+.plant-card p strong {
+    display: block;
+    font-size: 1rem; 
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px 15px;
+    margin: 20px 0;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
+    font-size: 16px;
+    transition: border 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #0099cc;
+    outline: none;
+}

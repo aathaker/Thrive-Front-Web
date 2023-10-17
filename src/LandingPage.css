@@ -1,0 +1,35 @@
+/* LandingPage.css */
+
+.landing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.landing-container h1 {
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
+.landing-container p {
+    font-size: 1.2em;
+    margin-bottom: 2em;
+}
+
+.landing-container a {
+    margin: 0.5em;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 0.3em;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.landing-container a:hover {
+    background-color: #45a049;
+}
+

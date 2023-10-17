@@ -1,0 +1,28 @@
+.care-reminder-container {
+    background-color: #e5f2e8;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0px 5px 15px rgba(0, 128, 0, 0.2);
+    margin: 25px 0;
+    text-align: center;
+}
+
+.care-reminder-content h2 {
+    color: #336633;
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.care-reminder-content li {
+    color: #5A6B78; 
+    font-size: 18px;
+    margin: 10px 0; 
+    line-height: 1.6;
+}
+
+.care-reminder-content ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+

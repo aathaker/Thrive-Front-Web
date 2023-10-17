@@ -1,0 +1,26 @@
+/* WeatherBasedSuggestions.css */
+
+.weather-container {
+    background-color: #E0FEFF;
+    padding: 50px 30px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.08);
+    margin: 25px 0;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.weather-container h2 {
+    color: #2C3E50;
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.weather-container p {
+    color: #5A6B78;
+    font-size: 18px;
+    line-height: 1.6;
+}
+

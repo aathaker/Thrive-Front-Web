@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAuth } from './AuthContext';
+import './Journal.css';
+
 
 const Journal = () => {
     const { user } = useAuth();
@@ -61,28 +63,30 @@ const Journal = () => {
 
 
     return (
-        <div>
+        <div className="journal-container">
             <h2>Add Journal Entry</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
+            <form onSubmit={handleSubmit} className="journal-form">
+                <div className="journal-input">
                     <input
                         type="text"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                         placeholder="Title"
                         required
+                        className="journal-title"
                     />
                 </div>
-                <div>
+                <div className="journal-textarea">
                     <textarea
                         value={content}
                         onChange={(e) => setContent(e.target.value)}
                         placeholder="Content"
                         required
+                        className="journal-content"
                     />
                 </div>
-                <div>
-                    <button type="submit">Add Entry</button>
+                <div className="journal-btn-container">
+                    <button type="submit" className="journal-btn">Add Entry</button>
                 </div>
             </form>
 

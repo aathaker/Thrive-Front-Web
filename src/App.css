@@ -1,4 +1,4 @@
-body, h1, h2, h3, p {
+/*body, h1, h2, h3, p {
     margin: 0;
     padding: 0;
 }
@@ -37,23 +37,5 @@ button:hover {
     padding: 0 20px;
 }
 
-.card {
-    background-color: #FFFFFF;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s; 
-}
-
-.card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-}
-
-.section {
-    padding: 40px 0;
-}
-
-/* link the Roboto font from Google Fonts in HTML*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
-
+*/

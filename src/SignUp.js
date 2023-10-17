@@ -44,30 +44,34 @@ const SignUp = () => {
     const navigateToLogin = () => {
         navigate('/login'); 
     };
-
+    
     return (
-        <div>
-            <h2>Sign Up</h2>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    name="username"
-                    placeholder="Username"
-                    value={userData.username}
-                    onChange={handleChange}
-                />
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    value={userData.password}
-                    onChange={handleChange}
-                />
-                <button type="submit">Sign Up</button>
-            </form>
-            <button onClick={navigateToLogin}>Already have an account? Log In</button>
-        </div>
-    );
+    <div className="signup-container">
+        <h2 className="signup-heading">Sign Up</h2>
+        <form className="signup-form" onSubmit={handleSubmit}>
+            <input
+                className="signup-input"
+                type="text"
+                name="username"
+                placeholder="Username"
+                value={userData.username}
+                onChange={handleChange}
+            />
+            <input
+                className="signup-input"
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={userData.password}
+                onChange={handleChange}
+            />
+            <button className="signup-btn" type="submit">Sign Up</button>
+        </form>
+        <button className="login-redirect-btn" onClick={navigateToLogin}>Already have an account? Log In</button>
+    </div>
+);
+
+
 }
 
 export default SignUp;

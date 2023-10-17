@@ -58,27 +58,27 @@ const LogIn = () => {
     };
 
     return (
-        <div>
-            <h2>Log In</h2>
+        <div class="login-container">
+            <h1 class="login-container__title">Log in!</h1>
             <form className="login-form" onSubmit={handleSubmit}>
-                <input
+                <input class="login-container__input"
                     type="text"
                     name="username"
                     placeholder="Username"
                     value={userData.username}
                     onChange={handleChange}
                 />
-                <input
+                <input class="login-container__input"
                     type="password"
                     name="password"
                     placeholder="Password"
                     value={userData.password}
                     onChange={handleChange}
                 />
-                <button type="submit">Log In</button>
+                <button class="login-container__button" type="submit">Log In</button>
                 {errorMessage && <p className="error-message">{errorMessage}</p>}
             </form>
-            <button onClick={navigateToSignUp}>Don't have an account? Sign Up</button>
+            <button class="login-container__button" onClick={navigateToSignUp}>Don't have an account? Sign Up</button>
         </div>
     );
 }

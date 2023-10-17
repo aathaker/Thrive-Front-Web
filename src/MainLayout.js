@@ -5,15 +5,16 @@ import './MainLayout.css';
 
 function MainLayout({ children }) {
     return (
-        <div className="container">
-            <Header />
-            
-            <main className="main-content">
-                {children}  {/* This will be the main content of the page */}
-            </main>
-            
+        <>
+            <div className="container">
+                <Header />
+
+                <main className="main-content">
+                    {children}  {/* This will be the main content of the page */}
+                </main>
+            </div>
             <Footer />
-        </div>
+        </>
     );
 }
 

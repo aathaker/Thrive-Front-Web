@@ -28,7 +28,7 @@ function PlantDirectory() {
     }, [searchTerm, filterDifficulty, filterType, filterSunlight]);
 
     return (
-        <div className="directory-container">
+        <div className="directory-container plant-directory">
             <div className="filter-sidebar">
                 <h3>Filter by:</h3>
 

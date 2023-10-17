@@ -1,62 +1,51 @@
-/* Center the login container */
 .login-container {
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 8px;
-    width: 300px;
+    background-color: #EAEDED; 
+    padding: 60px;
+    border-radius: 10px;
+    width: 750px;
+    height: 600px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center; /* Center the title */
-    margin: 0 auto;
+    text-align: center;
+    margin: 5% auto;
     position: relative;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(0%);
 }
 
-/* Style the input fields */
-.login-container input[type="text"], .login-container input[type="password"] {
+.login-container__input {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
+    padding: 20px;
+    margin: 20px 0;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 6px;
+    font-size: 18px;
 }
 
-/* Style the login button */
-.login-container button {
-    background-color: #007bff;
+.login-container__button {
+    background-color: #4CAF50;
     border: none;
     color: #fff;
-    padding: 10px 20px;
-    border-radius: 4px;
+    padding: 20px 30px;
+    border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.2s;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 30px;
+    font-size: 18px;
 }
 
-/* Hover effect for the login button */
-.login-container button:hover {
-    background-color: #0056b3;
+.login-container__button:hover {
+    background-color: #8c7260;
 }
 
-/* Style for the footer/sign up text */
-.footer {
-    margin-top: 20px;
-    text-align: center;
-}
-
-/* Link styling for the sign up text */
-.footer a {
-    color: #007bff;
+.login-container__forgot-password {
+    display: inline-block;
+    margin-top: 15px;
     text-decoration: none;
+    color: #007bff;
 }
 
-.footer a:hover {
+.login-container__forgot-password:hover {
     text-decoration: underline;
-}
-
-.error-message {
-    color: red;
-    margin-top: 10px;
 }
 

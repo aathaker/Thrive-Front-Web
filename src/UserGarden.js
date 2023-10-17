@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 function UserGarden() {
+    const [plants, setPlants] = useState([]);  // Define a state for plants
+
+    // add here
+
     return (
         <div>
             {plants.length === 0 ? (

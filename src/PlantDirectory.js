@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './PlantDirectory.css';
+import { useAuth } from './AuthContext';
 import axios from 'axios';
 
 function PlantDirectory() {
+    const { user } = useAuth();
     const [searchTerm, setSearchTerm] = useState('');
     const [plants, setPlants] = useState([]);
     const [filterDifficulty, setFilterDifficulty] = useState('');
@@ -26,6 +28,23 @@ function PlantDirectory() {
 
         fetchData();
     }, [searchTerm, filterDifficulty, filterType, filterSunlight]);
+
+
+    const addPlantToGarden = async (plantName, plantType) => {
+    try {
+        const response = await axios.post(`/user/${user.username}/garden`, { plantName, plantType });
+        if (response.status === 201) {
+            alert('Plant added to garden successfully!');
+            setPlants(prevPlants => [...prevPlants, { plantName, plantType }]);
+        } else {
+            alert('Error adding plant to garden.');
+        }
+    } catch (error) {
+        alert('Error adding plant to garden:', error.message);
+    }
+    };
+
+
 
     return (
         <div className="directory-container plant-directory">
@@ -93,6 +112,7 @@ function PlantDirectory() {
                             <p><strong>Sunlight:</strong> {plant.sunlight}</p>
                             <p><strong>Type:</strong> {plant.type}</p>
                             <p>{plant.about}</p>
+                            <button onClick={() => addPlantToGarden(plant.name, plant.type)}>+</button>
                         </div>
                     ))}
                 </div>

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAuth } from './AuthContext';
+import { useNavigate } from 'react-router-dom';
 import './UserGarden.css';
 
 function UserGarden() {
     const [plants, setPlants] = useState([]);
     const { user } = useAuth();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchGardenData = async () => {
@@ -24,9 +26,12 @@ function UserGarden() {
         fetchGardenData();
     }, [user.username]);
 
+
     const handleAddPlantsClick = () => {
-        window.location.href = '/plant-directory';
+        navigate('/directory');
     }
+
+
 
     return (
         <div className="user-garden-container">

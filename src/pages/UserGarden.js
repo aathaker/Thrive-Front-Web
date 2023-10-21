@@ -12,7 +12,7 @@ function UserGarden() {
     useEffect(() => {
         const fetchGardenData = async () => {
             try {
-                const response = await axios.get(`/user/${user.username}/garden`);
+                const response = await axios.get(`http://localhost:3001/user/${user.username}/garden`);
                 if (response.status === 200) {
                     setPlants(response.data);
                 } else {

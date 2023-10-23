@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useAuth } from './AuthContext';
+import { useAuth } from '../context/AuthContext';
 import './Journal.css';
 
 
@@ -13,7 +13,7 @@ const Journal = () => {
     useEffect(() => {
         const fetchEntries = async () => {
             try {
-                const response = await axios.get(`/user/${user.username}/journal`);
+                const response = await axios.get(`http://localhost:3001/user/${user.username}/journal`);
                 if (response.status === 200) {
                     setEntries(response.data);
                 }
@@ -28,7 +28,7 @@ const Journal = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`/user/${user.username}/journal`, { title, content });
+            const response = await axios.post(`http://localhost:3001/user/${user.username}/journal`, { title, content });
             if (response.status === 201) {
                 alert('Journal entry added successfully!');
                 const currentDate = new Date();

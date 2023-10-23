@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useAuth } from './AuthContext';
+import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import './UserGarden.css';
 
@@ -12,7 +12,7 @@ function UserGarden() {
     useEffect(() => {
         const fetchGardenData = async () => {
             try {
-                const response = await axios.get(`/user/${user.username}/garden`);
+                const response = await axios.get(`http://localhost:3001/user/${user.username}/garden`);
                 if (response.status === 200) {
                     setPlants(response.data);
                 } else {

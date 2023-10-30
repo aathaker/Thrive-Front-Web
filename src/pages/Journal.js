@@ -13,6 +13,7 @@ const Journal = () => {
     useEffect(() => {
         const fetchEntries = async () => {
             try {
+              //  const response = await axios.get(`/user/${user.username}/journal`);
                 const response = await axios.get(`http://localhost:3001/user/${user.username}/journal`);
                 if (response.status === 200) {
                     setEntries(response.data);
@@ -25,23 +26,42 @@ const Journal = () => {
         fetchEntries();
     }, [user.username]);
 
+
+
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await axios.post(`http://localhost:3001/user/${user.username}/journal`, { title, content });
-            if (response.status === 201) {
-                alert('Journal entry added successfully!');
-                const currentDate = new Date();
-                setEntries(prevEntries => [...prevEntries, { title, content, date: currentDate }]);
-                setTitle('');
-                setContent('');
-            } else {
-                alert('Error adding journal entry.');
-            }
-        } catch (error) {
-            alert('Error adding journal entry:', error.message);
+    e.preventDefault();
+    try {
+        const response = await axios.post(`http://localhost:3001/user/${user.username}/journal`, { title, content });
+        if (response.status === 201) {
+            alert('Journal entry added successfully!');
+            const currentDate = new Date();
+            const newEntry = { title, content, date: currentDate };
+            setEntries(prevEntries => [newEntry, ...prevEntries]);
+            setTitle('');
+            setContent('');
+        } else {
+            alert('Error adding journal entry.');
         }
-    };
+    } catch (error) {
+        alert('Error adding journal entry:', error.message);
+    }
+};
+
+    const handleDeleteEntry = async (entryId) => {
+    try {
+        setEntries(entries.filter(entry => entry._id !== entryId));
+        await axios.delete(`http://localhost:3001/user/${user.username}/journal/${entryId}`);
+    } catch (error) {
+        console.error('Error deleting journal entry:', error.message);
+    }
+};
+
+
+
+// if you add a new journal entry and then delete it without refreshing page, it stays in the database until 
+//the next delete. fix this
+
+
 
     const renderJournalEntry = (entry) => {
         const formattedDate = new Date(entry.date).toLocaleDateString("en-US", {
@@ -57,6 +77,7 @@ const Journal = () => {
                 <h3>{entry.title}</h3>
                 <p>{entry.content}</p>
                 <small>{formattedDate}</small>
+                <button onClick={() => handleDeleteEntry(entry._id)}>Delete Entry</button>
             </div>
         );
     };
@@ -99,4 +120,3 @@ const Journal = () => {
 }
 
 export default Journal;
-

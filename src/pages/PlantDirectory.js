@@ -31,20 +31,20 @@ function PlantDirectory() {
         fetchData();
     }, [searchTerm, filterDifficulty, filterType, filterSunlight]);
 
-
     const addPlantToGarden = async (plantName, plantType) => {
     try {
         const response = await axios.post(`http://localhost:3001/user/${user.username}/garden`, { plantName, plantType });
         if (response.status === 201) {
             alert('Plant added to garden successfully!');
-            setPlants(prevPlants => [...prevPlants, { plantName, plantType }]);
         } else {
             alert('Error adding plant to garden.');
         }
     } catch (error) {
         alert('Error adding plant to garden:', error.message);
     }
-    };
+};
+
+
 
 
 

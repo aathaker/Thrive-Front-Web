@@ -14,7 +14,6 @@ import Marketplace from './pages/Marketplace';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 
-
 function App() {
     return (
         <AuthProvider>

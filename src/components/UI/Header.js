@@ -33,7 +33,7 @@ function Header() {
                 <Link to="/my-garden">My Garden</Link>
                 <Link to="/journal">Journal</Link>
                 <Link to="/marketplace">Marketplace</Link>
-            </nav>
+           </nav>
             { isLoggedIn && (
                 <div onClick={() => setShowDropdown(!showDropdown)}>
                     User Profile

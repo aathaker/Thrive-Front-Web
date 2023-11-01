@@ -32,6 +32,15 @@ function UserGarden() {
     }
 
 
+    const handleDeletePlant = async (plantId) => {
+        try {
+            await axios.delete(`http://localhost:3001/user/${user.username}/garden/${plantId}`);
+            setPlants(plants.filter(plant => plant._id !== plantId));
+        } catch (error) {
+            console.error('Error deleting plant:', error.message);
+        }
+    }
+
 
     return (
         <div className="user-garden-container">
@@ -44,6 +53,7 @@ function UserGarden() {
                 plants.map(plant => (
                     <div key={plant._id} className="plant-card">
                         <h3>{plant.name}</h3>
+                        <button onClick={() => handleDeletePlant(plant._id)}>Delete Plant</button>
                         <p><strong>Scientific Name:</strong> {plant.scientificName}</p>
                         <p><strong>Water Frequency:</strong> {plant.waterFrequency}</p>
                         <p><strong>Difficulty:</strong> {plant.difficulty}</p>

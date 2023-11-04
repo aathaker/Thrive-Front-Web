@@ -27,29 +27,23 @@ function Marketplace() {
         <label>Category:</label>
         <select>
           <option value="">All</option>
-          <option value="Easy">Easy</option>
-          <option value="Moderate">Moderate</option>
-          <option value="Difficult">Difficult</option>
+          <option value="clothes">Clothes</option>
+          <option value="tools">Tools</option>
+          <option value="plants">Plants</option>
+          <option value="vehicles">Vehicles</option>
+          <option value="organics">Organics</option>
         </select>
 
         {/* Type Filter */}
         <label>Price:</label>
         <select>
           <option value="">All</option>
-          <option value="Succulent">Succulent</option>
-          <option value="Herb">Herb</option>
-          <option value="Vine">Vine</option>
-          <option value="Flower">Flower</option>
-          <option value="Ficus">Ficus</option>
-          <option value="Fern">Fern</option>
-          <option value="Palm">Palm</option>
-          <option value="Foliage Plant">Foliage Plant</option>
-          <option value="Epiphyte">Epiphyte</option>
-          <option value="Bromeliad">Bromeliad</option>
-          <option value="Conifer">Conifer</option>
-          <option value="Tropical Plant">Tropical Plant</option>
-          <option value="Cactus">Cactus</option>
-          <option value="Dracaena">Dracaena</option>
+          <option value="1strange">0-100</option>
+          <option value="2ndrange">100-500</option>
+          <option value="3rdrange">500-1000</option>
+          <option value="4thrange">1000-5000</option>
+          <option value="5thrange">5000-10000</option>
+          <option value="6thrange">10000+</option>
         </select>
       </div>
 

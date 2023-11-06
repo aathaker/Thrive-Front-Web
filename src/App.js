@@ -13,6 +13,7 @@ import Journal from './pages/Journal';
 import Marketplace from './pages/Marketplace';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
+import Information from './pages/Information'
 
 function App() {
     return (
@@ -29,6 +30,7 @@ function App() {
                             <Route path="/directory" element={<PlantDirectory />} />
                             <Route path="/journal" element={<Journal />} />
                             <Route path="/marketplace" element={<Marketplace />} />
+                            <Route path="/information" element={<Information />} />
                         </Route>
                     </Routes>
                 </MainLayout>

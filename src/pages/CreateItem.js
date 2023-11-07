@@ -8,7 +8,7 @@ function CreateItem() {
     const { user } = useAuth();
     const navigate = useNavigate();
     const [itemData, setItemData] = useState({
-        user: user.username,
+        theUser: user.username,
         itemname: '',
         price: '',
         category: ''
@@ -29,9 +29,10 @@ function CreateItem() {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const { user, itemname, price, category } = itemData;
+        const { theUser, itemname, price, category } = itemData;
         // Use the form values as needed
-        console.log(`User: ${user}, Name: ${itemname}, Price: ${price}, Category: ${category}`);
+        // console.log("Ameer " + itemData.user);
+        console.log(`User: ${theUser}, Name: ${itemname}, Price: ${price}, Category: ${category}`);
 
         try {
             // alert("here");
@@ -48,7 +49,7 @@ function CreateItem() {
             console.error('Error creating item:', error.response ? error.response.data.message : error.message);
         }
 
-        navigate('/marketplace');
+        // navigate('/marketplace');
     }
 
 
@@ -70,13 +71,22 @@ function CreateItem() {
                     value={itemData.price}
                     onChange={handlePriceChange}
                 />
-                <input class="item-container__input"
+                {/* <input class="item-container__input"
                     type="text"
                     name="itemcategory"
                     placeholder="Category"
                     value={itemData.category}
                     onChange={handleCategoryChange}
-                />
+                /> */}
+                <select class="dropDown" onChange={handleCategoryChange}>
+                    <option value="">Select Category</option>
+                    <option value="clothes">Clothes</option>
+                    <option value="tools">Tools</option>
+                    <option value="plants">Plants</option>
+                    <option value="vehicles">Vehicles</option>
+                    <option value="organics">Organics</option>
+                    <option value="others">Others</option>
+                </select>
                 <button class="item-container__button" type="submit">Post Item</button>
                 {/* {errorMessage && <p className="error-message">{errorMessage}</p>} */}
             </form>

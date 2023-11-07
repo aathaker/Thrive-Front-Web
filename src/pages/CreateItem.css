@@ -12,7 +12,7 @@
     transform: translateY(0%);
 }
 
-.item-container__input {
+.item-container__input,.dropDown {
     width: 100%;
     padding: 20px;
     margin: 20px 0;

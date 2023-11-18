@@ -30,26 +30,17 @@ function CreateItem() {
         event.preventDefault();
 
         const { theUser, itemname, price, category } = itemData;
-        // Use the form values as needed
-        // console.log("Ameer " + itemData.user);
         console.log(`User: ${theUser}, Name: ${itemname}, Price: ${price}, Category: ${category}`);
 
         try {
-            // alert("here");
             const response = await axios.post('http://localhost:3001/market/item', itemData);
             console.log("Item created successfully");
 
-            // if (response.status === 200) {
-            //     setItemData(response.data.user); 
-            //     console.log('Item created successfully:');
-            // } else {
-            //     console.error('Error creating item:', response.data.message);
-            // }
         } catch (error) {
             console.error('Error creating item:', error.response ? error.response.data.message : error.message);
         }
 
-        // navigate('/marketplace');
+        navigate('/marketplace');
     }
 
 

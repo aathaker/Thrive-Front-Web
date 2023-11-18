@@ -6,6 +6,27 @@ import './Marketplace.css';
 function Marketplace() {
   const [items, setItems] = useState([]);
   const navigate = useNavigate();
+  const [searchWord, setSearchWord] = useState('');
+  const [itemCategory, setItemCategory] = useState('');
+  const [itemPrice, setItemPrice] = useState(0);
+
+  useEffect(() => {
+      const fetchItemData = async () => {
+          try {
+              const response = await axios.get(`http://localhost:3001/market/item`);
+              if (response.status === 200) {
+                // console.log(response.data);
+                setItems(response.data);
+              } else {
+                  console.error('Error fetching market data.');
+              }
+          } catch (error) {
+              console.error('Error fetching market data:', error.message);
+          }
+      }
+
+      fetchItemData();
+  }, []);
 
   const handleAddItemClick = () => {
     navigate('/CreateItem');
@@ -49,18 +70,15 @@ function Marketplace() {
 
       <div className="items-main-content">
         <div className="items-container">
-          {/* {items.map(plant => (
-            <div key={plant._id} className="item-card">
-              <h3>{plant.name}</h3>
-              <p><strong>Scientific Name:</strong> {plant.scientificName}</p>
-              <p><strong>Water Frequency:</strong> {plant.waterFrequency}</p>
-              <p><strong>Difficulty:</strong> {plant.difficulty}</p>
-              <p><strong>Sunlight:</strong> {plant.sunlight}</p>
-              <p><strong>Type:</strong> {plant.type}</p>
-              <p>{plant.about}</p>
-              <button>+</button>
+          {items.map(items => (
+            <div key={items._id} className="items-card">
+              <h3>{items.itemName}</h3>
+              <p><strong>Item Name:</strong> {items.itemName}</p>
+              <p><strong>Seller:</strong> {items.userName}</p>
+              <p><strong>Price:</strong> {items.price}</p>
+              <p><strong>Category:</strong> {items.category}</p>
             </div>
-          ))} */}
+          ))}
         </div>
       </div>
     </div>

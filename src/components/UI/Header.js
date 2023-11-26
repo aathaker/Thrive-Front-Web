@@ -26,7 +26,7 @@ function Header() {
 
     return (
         <header>
-            <div>Logo Here</div>
+            <div className ="logo">Thrive</div>
             <nav>
                 <Link to="/">Home</Link>
                 <Link to="/directory">Plant Directory</Link>

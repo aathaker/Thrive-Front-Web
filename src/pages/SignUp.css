@@ -1,57 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 .signup-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    padding: 20px;
-    box-sizing: border-box;
+  display: flex;
+  min-height: 100vh;
+}
+
+.signup-left {
+  flex: 1;
+  background-image: url('./main.jpg'); 
+  background-size: cover;
+  position: relative;
+}
+
+.signup-left::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.signup-thrive-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 4rem;
+  font-weight: bold;
+  text-decoration: none;
+  z-index: 2;
+}
+
+.signup-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f8f9fa;
+}
+
+.signup-box {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin: 2rem;
 }
 
 .signup-heading {
-    margin-bottom: 20px;
+  color: #333;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
 .signup-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .signup-input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-.signup-btn, .login-redirect-btn {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  width: calc(100% - 2rem);
+  padding: 1rem;
+  margin: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
 }
 
 .signup-btn {
-    background-color: #4465C4;
-    color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 1rem;
+  font-size: 1rem;
 }
 
 .signup-btn:hover {
-    background-color: #334BA1;
+  background-color: #367c39;
 }
 
 .login-redirect-btn {
-    background-color: transparent;
-    color: #4465C4;
-    text-decoration: underline;
-    margin-top: 10px;
+  background-color: transparent;
+  border: none;
+  color: #007bff;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  text-align: center;
+  display: block; /* makes the whole line clickable */
+  margin: 1rem auto;
 }
 
 .login-redirect-btn:hover {
-    color: #334BA1;
+  color: #0056b3;
+}
+
+.signup-back {
+  display: block;
+  margin: 1rem auto;
+  
+  text-decoration: none;
+  color: #007bff;
+  text-align: center; 
+}
+
+.signup-back:hover {
+  text-decoration: underline;
+  color: #0056b3;
 }
 

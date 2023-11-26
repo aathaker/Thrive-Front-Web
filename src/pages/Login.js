@@ -58,7 +58,7 @@ const LogIn = () => {
     };
 
     return (
-        <div class="login-container">
+        <div className="login-container">
             <div className="login-left">
                 <Link to="/landing" className="login-thrive-text">Thrive</Link>
             </div>
@@ -66,21 +66,21 @@ const LogIn = () => {
                 <div className="login-box">
                     <h2 className="login-title">Log In</h2>
                     <form className="login-form" onSubmit={handleSubmit}>
-                    <input class="login-input"
+                    <input className="login-input"
                         type="text"
                         name="username"
                         placeholder="Username"
                         value={userData.username}
                         onChange={handleChange}
                     />
-                    <input class="login-input"
+                    <input className="login-input"
                         type="password"
                         name="password"
                         placeholder="Password"
                         value={userData.password}
                         onChange={handleChange}
                     />
-                    <button class="login-button" type="submit">Log In</button>
+                    <button className="login-button" type="submit">Log In</button>
                     {errorMessage && <p className="error-message">{errorMessage}</p>}
                 </form>
                 <p className="login-message">

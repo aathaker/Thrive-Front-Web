@@ -1,16 +1,15 @@
-// HomePage.js
 
 import React from 'react';
 import './Information.css'
 
 function Information() {
     return (
-        <div className="Info_container">
+        <div className="info-container">
             <h3>Sunlight Preference</h3>
-            <div className="Intro">
+            <div className="intro">
             <p>Sunlight is one of the most important factors for your plant’s health and growth. Understanding each type of sunlight will help your plants <b><i>THRIVE</i></b>, and prevent pests, diseases, and untimely death of your house plant(s).</p>
             </div>
-            <div className='Section'>
+            <div className='section'>
             <br></br><h3>Direct and Indirect Sunlight</h3>
             <p>There are two types of sunlight – Direct and Indirect sunlight, the tricky part is arranging your houseplants to those specific areas of your home. This may limit what houseplants you should have in your home or at the very least you may need additional help such as grow lights, humidifiers, etc.</p>
             

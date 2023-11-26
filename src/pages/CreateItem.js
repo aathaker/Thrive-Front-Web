@@ -11,7 +11,8 @@ function CreateItem() {
         theUser: user.username,
         itemname: '',
         price: '',
-        category: ''
+        category: '',
+        status: 'SALE'
     });
 
     const handleNameChange = (event) => {
@@ -29,8 +30,9 @@ function CreateItem() {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const { theUser, itemname, price, category } = itemData;
-        console.log(`User: ${theUser}, Name: ${itemname}, Price: ${price}, Category: ${category}`);
+        const { theUser, itemname, price, category,  status} = itemData;
+        console.log(`User: ${theUser}, Name: ${itemname}, Price: ${price}, Category: ${category}, 
+        Stat: ${status}`);
 
         try {
             const response = await axios.post('http://localhost:3001/market/item', itemData);

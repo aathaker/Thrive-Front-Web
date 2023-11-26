@@ -14,6 +14,7 @@ import Marketplace from './pages/Marketplace';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import CreateItem from './pages/CreateItem';
+import MyPurchases from './pages/MyPurchases';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
                             <Route path="/journal" element={<Journal />} />
                             <Route path="/marketplace" element={<Marketplace />} />
                             <Route path="/createitem" element={<CreateItem />} />
+                            <Route path="/mypurchases" element={<MyPurchases />} />
                         </Route>
                     </Routes>
                 </MainLayout>

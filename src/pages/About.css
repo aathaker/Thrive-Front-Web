@@ -1,0 +1,40 @@
+/* About.css */
+
+.about-container {
+    padding: 20px;
+    margin: auto;
+    max-width: 800px;
+}
+
+.about-container h1 {
+    font-size: 2em;
+    color: #333;
+}
+
+.about-container p {
+    font-size: 1.2em;
+    color: #666;
+    line-height: 1.6;
+}
+
+.about-container input, .about-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.about-container button {
+    padding: 10px 20px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.about-container button:hover {
+    background-color: #4cae4c;
+}
+

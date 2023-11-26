@@ -14,6 +14,7 @@ import Marketplace from './pages/Marketplace';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Information from './pages/Information'
+import About from './pages/About';
 
 function App() {
     return (
@@ -31,6 +32,7 @@ function App() {
                             <Route path="/journal" element={<Journal />} />
                             <Route path="/marketplace" element={<Marketplace />} />
                             <Route path="/information" element={<Information />} />
+                            <Route path="/about" element={<About />} />
                         </Route>
                     </Routes>
                 </MainLayout>

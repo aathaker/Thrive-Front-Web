@@ -13,11 +13,11 @@ const Reminder = (props) => {
         <table>
           <thead>
             <tr>
-              <th>Plant</th>
-              <th>Content</th>
-              <th>Date Added</th>
-              <th>Interval (days)</th>
-              <th>Delete</th>
+              <th data-testid="plant-reminder-heading">Plant</th>
+              <th data-testid="content-reminder-heading">Content</th>
+              <th data-testid="date-reminder-heading">Date Added</th>
+              <th data-testid="interval-reminder-heading">Interval (days)</th>
+              <th data-testid="delete-reminder-heading">Delete</th>
             </tr>
           </thead>
         </table>

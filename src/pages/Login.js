@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './Login.css';
 
 const LogIn = () => {
@@ -58,28 +58,38 @@ const LogIn = () => {
     };
 
     return (
-        <div class="login-container">
-            <h1 class="login-container__title">Log in!</h1>
-            <form className="login-form" onSubmit={handleSubmit}>
-                <input class="login-container__input"
-                    type="text"
-                    name="username"
-                    placeholder="Username"
-                    value={userData.username}
-                    onChange={handleChange}
-                />
-                <input class="login-container__input"
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    value={userData.password}
-                    onChange={handleChange}
-                />
-                <button class="login-container__button" type="submit">Log In</button>
-                {errorMessage && <p className="error-message">{errorMessage}</p>}
-            </form>
-            <button class="login-container__button" onClick={navigateToSignUp}>Don't have an account? Sign Up</button>
+        <div className="login-container">
+            <div className="login-left">
+                <Link to="/landing" className="login-thrive-text">Thrive</Link>
+            </div>
+            <div className="login-right">
+                <div className="login-box">
+                    <h2 className="login-title">Log In</h2>
+                    <form className="login-form" onSubmit={handleSubmit}>
+                    <input className="login-input"
+                        type="text"
+                        name="username"
+                        placeholder="Username"
+                        value={userData.username}
+                        onChange={handleChange}
+                    />
+                    <input className="login-input"
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        value={userData.password}
+                        onChange={handleChange}
+                    />
+                    <button className="login-button" type="submit">Log In</button>
+                    {errorMessage && <p className="error-message">{errorMessage}</p>}
+                </form>
+                <p className="login-message">
+                        Don't have an account? <Link to="/signup" className="login-signup-link">Sign Up</Link>
+                    </p>
+                    <Link to="/landing" className="login-back-link">Back to Landing Page</Link>
+            </div>
         </div>
+    </div>
     );
 }
 

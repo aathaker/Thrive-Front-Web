@@ -77,13 +77,13 @@ function CareReminder() {
    
     return (
         <div className='carereminder-container'>
-            <h2>Care Reminder</h2>
-            <h3>Add Reminder</h3>
+            <h3 data-testid="add-reminder-test">Add Reminder</h3>
         <form className="carereminder-contianer-form" onSubmit={formsubmitHandler}>
             
-            <div className='carereminder-contianer-content'>
+            <div className='carereminder-contianer-content' data-testid="reminder-input">
             
                 <Reminderinput
+                    data-testid="plant-input"
                     id="plant"
                     element="input"
                     type="text"
@@ -94,6 +94,7 @@ function CareReminder() {
                 />
 
                 <Reminderinput
+                    data-testid="content-input"
                     id="content"
                     element="input"
                     type="text"
@@ -103,6 +104,7 @@ function CareReminder() {
                     errorText="Please enter a valid content."
                 />
                 <Reminderinput
+                    data-testid="date-input"
                     id="date"
                     element="input"
                     type="date"
@@ -112,6 +114,7 @@ function CareReminder() {
                     errorText="Please enter a valid date."
                 />
                 <Reminderinput
+                    data-testid="interval-input"
                     id="interval"
                     element="input"
                     type="number"
@@ -128,7 +131,7 @@ function CareReminder() {
 
         </form>
         <div className='carereminder-container-todayreminder'>
-            <h2>Water Today</h2>
+            <h2 data-testid="water-today-test">Water Today</h2>
             <Reminder // Add a unique key for each Reminder component
                 key=""
                 heading="true"
@@ -158,7 +161,7 @@ function CareReminder() {
             ))}
         </div>
         <div className='carereminder-container-allreminder'>
-            <h2>All Plant water Reminder</h2>
+            <h2 data-testid="all-plant-test">All Plant water Reminder</h2>
             <Reminder // Add a unique key for each Reminder component
                 key=""
                 heading="true"

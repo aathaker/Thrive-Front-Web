@@ -1,0 +1,51 @@
+.item-container{
+    background-color: #EAEDED; 
+    padding: 60px;
+    border-radius: 10px;
+    width: 750px;
+    height: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 5% auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(0%);
+}
+
+.item-container__input,.dropDown {
+    width: 100%;
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 18px;
+}
+
+.item-container__button {
+    background-color: #4CAF50;
+    border: none;
+    color: #fff;
+    padding: 20px 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
+    margin-top: 30px;
+    font-size: 18px;
+}
+
+.item-container__button:hover {
+    background-color: #8c7260;
+}
+
+.item-container__forgot-password {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+.item-container__forgot-password:hover {
+    text-decoration: underline;
+}
+

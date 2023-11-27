@@ -13,8 +13,13 @@ import Journal from './pages/Journal';
 import Marketplace from './pages/Marketplace';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
+import CreateItem from './pages/CreateItem';
+import MyPurchases from './pages/MyPurchases';
+
+
 import Information from './pages/Information'
 import About from './pages/About';
+
 
 function App() {
     return (
@@ -31,8 +36,13 @@ function App() {
                             <Route path="/directory" element={<PlantDirectory />} />
                             <Route path="/journal" element={<Journal />} />
                             <Route path="/marketplace" element={<Marketplace />} />
+
+                            <Route path="/createitem" element={<CreateItem />} />
+                            <Route path="/mypurchases" element={<MyPurchases />} />
+
                             <Route path="/information" element={<Information />} />
                             <Route path="/about" element={<About />} />
+
                         </Route>
                     </Routes>
                 </MainLayout>

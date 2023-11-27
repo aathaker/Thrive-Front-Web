@@ -1,4 +1,5 @@
 /* PlantDirectory.css */
+
 .directory-container {
     display: flex;
     padding: 20px;
@@ -7,7 +8,8 @@
 }
 
 .filter-sidebar {
-    width: 250px; 
+   /* width: 250px; */
+    flex: 0 0 250px;
     background-color: #f7f7f7; 
     border-radius: 10px; 
     padding: 20px;
@@ -60,6 +62,9 @@
     background-color: #fff;
     transition: transform 0.3s;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .plant-card:hover {
@@ -76,3 +81,16 @@
     margin: 10px 0;
 }
 
+plant-card img {
+    max-width: 100%;
+    max-height: 150px; 
+    object-fit: cover;
+    margin-bottom: 5px; 
+}
+
+.plant-card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

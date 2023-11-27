@@ -26,14 +26,15 @@ function Header() {
 
     return (
         <header>
-            <div>Logo Here</div>
+            <div className ="logo">Thrive</div>
             <nav>
                 <Link to="/">Home</Link>
                 <Link to="/directory">Plant Directory</Link>
                 <Link to="/my-garden">My Garden</Link>
                 <Link to="/journal">Journal</Link>
                 <Link to="/marketplace">Marketplace</Link>
-            </nav>
+                <Link to="/Information">Information</Link>
+           </nav>
             { isLoggedIn && (
                 <div onClick={() => setShowDropdown(!showDropdown)}>
                     User Profile

@@ -7,13 +7,15 @@ function PlantDirectory() {
     const { user } = useAuth();
     const [searchTerm, setSearchTerm] = useState('');
     const [plants, setPlants] = useState([]);
+    const [imageUrls, setImageUrls] = useState({});
     const [filterDifficulty, setFilterDifficulty] = useState('');
     const [filterType, setFilterType] = useState('');
     const [filterSunlight, setFilterSunlight] = useState('');
 
+
+
     useEffect(() => {
-        
-        async function fetchData() {
+        const fetchData = async () => {
             let url = `http://localhost:3001/api/plants?search=${searchTerm}`;
             if (filterDifficulty) url += `&difficulty=${filterDifficulty}`;
             if (filterType) url += `&type=${filterType}`;
@@ -21,30 +23,62 @@ function PlantDirectory() {
 
             try {
                 const response = await axios.get(url);
-                
-                setPlants(response.data);
+                const fetchedPlants = response.data;
+                const fetchedImageUrls = await loadImageUrls(fetchedPlants);
+                setPlants(fetchedPlants);
+                setImageUrls(fetchedImageUrls);
             } catch (error) {
                 console.error("Error fetching the plants:", error);
             }
-        }
+        };
 
         fetchData();
     }, [searchTerm, filterDifficulty, filterType, filterSunlight]);
 
+    const loadImageUrls = async (plants) => {
+        const urls = {};
+        const imagePromises = plants.map(plant =>
+            fetchImageData(encodeURIComponent(plant.name + '.jpg'))
+                .then(imageUrl => {
+                    urls[plant.name] = imageUrl;
+                })
+        );
+
+        await Promise.all(imagePromises);
+        return urls;
+    };
+
+        
 
     const addPlantToGarden = async (plantName, plantType) => {
     try {
         const response = await axios.post(`http://localhost:3001/user/${user.username}/garden`, { plantName, plantType });
         if (response.status === 201) {
             alert('Plant added to garden successfully!');
-            setPlants(prevPlants => [...prevPlants, { plantName, plantType }]);
         } else {
             alert('Error adding plant to garden.');
         }
     } catch (error) {
         alert('Error adding plant to garden:', error.message);
     }
-    };
+};
+
+
+
+
+    const fetchImageData = async (imageName) => {
+    try {
+        const imageNameWithExtension = imageName.endsWith('.jpg') ? imageName : `${imageName}.jpg`;
+        const encodedImageName = encodeURIComponent(imageNameWithExtension);
+        const response = await axios.get(`http://localhost:3001/plant-images/${encodedImageName}`);
+        console.log(`Image fetched: ${imageNameWithExtension}`, response.data);
+        return `data:image/jpeg;base64,${response.data.data}`;
+    } catch (error) {
+        console.error(`Error fetching image data for ${imageName}:`, error);
+        return ''; 
+    }
+};
+
 
 
 
@@ -108,6 +142,8 @@ function PlantDirectory() {
                     {plants.map(plant => (
                         <div key={plant._id} className="plant-card">
                             <h3>{plant.name}</h3>
+                            <img src={imageUrls[plant.name]} alt={plant.name} />
+                            
                             <p><strong>Scientific Name:</strong> {plant.scientificName}</p>
                             <p><strong>Water Frequency:</strong> {plant.waterFrequency}</p>
                             <p><strong>Difficulty:</strong> {plant.difficulty}</p>
@@ -124,4 +160,5 @@ function PlantDirectory() {
 }
 
 export default PlantDirectory;
+
 

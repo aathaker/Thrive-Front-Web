@@ -37,6 +37,7 @@ function MyPurchases(){
                   <p><strong>Seller:</strong> {purchases.userName}</p>
                   <p><strong>Price:</strong> {purchases.price}</p>
                   <p><strong>Category:</strong> {purchases.category}</p>
+                  <p><strong>Contact:</strong> {purchases.contact}</p>
                   <p><strong>Status:</strong> {purchases.status}</p>
                 </div>
               ))}

@@ -12,6 +12,7 @@ function CreateItem() {
         itemname: '',
         price: '',
         category: '',
+        contact: '',
         status: 'SALE'
     });
 
@@ -23,15 +24,20 @@ function CreateItem() {
         setItemData({ ...itemData, price: event.target.value });
     };
 
+    const handleContactChange = (event) => {
+        setItemData({ ...itemData, contact: event.target.value });
+    };
+
     const handleCategoryChange = (event) => {
         setItemData({ ...itemData, category: event.target.value });
     };
+    
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const { theUser, itemname, price, category,  status} = itemData;
-        console.log(`User: ${theUser}, Name: ${itemname}, Price: ${price}, Category: ${category}, 
+        const { theUser, itemname, price, category,  contact, status} = itemData;
+        console.log(`User: ${theUser}, Name: ${itemname}, Price: ${price}, Category: ${category}, Contact: ${contact}
         Stat: ${status}`);
 
         try {
@@ -63,6 +69,13 @@ function CreateItem() {
                     placeholder="Price"
                     value={itemData.price}
                     onChange={handlePriceChange}
+                />
+                <input class="item-container__input"
+                    type="text"
+                    name="itemcontact"
+                    placeholder="Contact"
+                    value={itemData.contact}
+                    onChange={handleContactChange}
                 />
                 {/* <input class="item-container__input"
                     type="text"

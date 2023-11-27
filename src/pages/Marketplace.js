@@ -110,6 +110,7 @@ function Marketplace() {
               <p><strong>Seller:</strong> {items.userName}</p>
               <p><strong>Price:</strong> {items.price}</p>
               <p><strong>Category:</strong> {items.category}</p>
+              <p><strong>Contact:</strong> {items.contact}</p>
               <p><strong>Status:</strong> {items.status}</p>
               <button onClick={() => buyItem(items._id, items.userName)}>Buy!</button>
             </div>

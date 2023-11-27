@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './PlantDirectory.css';
 import { useAuth } from '../context/AuthContext';
 import axios from 'axios';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 function PlantDirectory() {
     const { user } = useAuth();
@@ -142,7 +143,7 @@ function PlantDirectory() {
                     {plants.map(plant => (
                         <div key={plant._id} className="plant-card">
                             <h3>{plant.name}</h3>
-                            <img src={imageUrls[plant.name]} alt={plant.name} />
+                            <LazyLoadImage alt={plant.name} src={imageUrls[plant.name]} />
                             
                             <p><strong>Scientific Name:</strong> {plant.scientificName}</p>
                             <p><strong>Water Frequency:</strong> {plant.waterFrequency}</p>

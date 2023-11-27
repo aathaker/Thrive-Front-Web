@@ -6,27 +6,57 @@ import './UserGarden.css';
 
 function UserGarden() {
     const [plants, setPlants] = useState([]);
+    const [imageUrls, setImageUrls] = useState({});
     const { user } = useAuth();
     const navigate = useNavigate();
 
     useEffect(() => {
-        const fetchGardenData = async () => {
-            try {
-                const response = await axios.get(`http://localhost:3001/user/${user.username}/garden`);
-                if (response.status === 200) {
-                    setPlants(response.data);
-                } else {
-                    console.error('Error fetching garden data.');
-                }
-            } catch (error) {
-                console.error('Error fetching garden data:', error.message);
+    const fetchGardenData = async () => {
+        try {
+            const response = await axios.get(`http://localhost:3001/user/${user.username}/garden`);
+            if (response.status === 200) {
+                setPlants(response.data);
+                const urls = await loadImageUrls(response.data);
+                setImageUrls(urls);
+            } else {
+                console.error('Error fetching garden data.');
             }
+        } catch (error) {
+            console.error('Error fetching garden data:', error.message);
         }
+    }
 
-        fetchGardenData();
-    }, [user.username]);
+    fetchGardenData();
+}, [user.username]);
+
+    const loadImageUrls = async (plants) => {
+        const urls = {};
+        const imagePromises = plants.map(plant =>
+            fetchImageData(encodeURIComponent(plant.name + '.jpg'))
+                .then(imageUrl => {
+                    urls[plant.name] = imageUrl;
+                })
+        );
+
+        await Promise.all(imagePromises);
+        return urls;
+    };
 
 
+
+    const fetchImageData = async (imageName) => {
+    try {
+        const encodedImageName = encodeURIComponent(imageName);
+        const response = await axios.get(`http://localhost:3001/plant-images/${encodedImageName}`);
+        return `data:image/jpeg;base64,${response.data.data}`;
+    } catch (error) {
+        console.error(`Error fetching image data for ${imageName}:`, error);
+        return '';
+    }
+};
+
+
+    
     const handleAddPlantsClick = () => {
         navigate('/directory');
     }
@@ -53,6 +83,7 @@ function UserGarden() {
                 plants.map(plant => (
                     <div key={plant._id} className="plant-card">
                         <h3>{plant.name}</h3>
+                        <img src={imageUrls[plant.name]} alt={plant.name} className="garden-plant-image" />
                         <button onClick={() => handleDeletePlant(plant._id)}>Delete Plant</button>
                         <p><strong>Scientific Name:</strong> {plant.scientificName}</p>
                         <p><strong>Water Frequency:</strong> {plant.waterFrequency}</p>

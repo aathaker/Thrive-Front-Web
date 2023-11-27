@@ -1,0 +1,19 @@
+.reminder-input {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.reminder-label {
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.reminderinput {
+    display: flex;
+    flex-direction: column;
+
+}
+

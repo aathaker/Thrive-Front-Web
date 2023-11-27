@@ -67,6 +67,7 @@ const LogIn = () => {
                     <h2 className="login-title">Log In</h2>
                     <form className="login-form" onSubmit={handleSubmit}>
                     <input className="login-input"
+                        data-testid="username-input"
                         type="text"
                         name="username"
                         placeholder="Username"
@@ -74,13 +75,15 @@ const LogIn = () => {
                         onChange={handleChange}
                     />
                     <input className="login-input"
+                        data-testid="password-input"
                         type="password"
                         name="password"
                         placeholder="Password"
                         value={userData.password}
                         onChange={handleChange}
                     />
-                    <button className="login-button" type="submit">Log In</button>
+                    <button className="login-button" data-testid="login-button"
+                     type="submit">Log In</button>
                     {errorMessage && <p className="error-message">{errorMessage}</p>}
                 </form>
                 <p className="login-message">
